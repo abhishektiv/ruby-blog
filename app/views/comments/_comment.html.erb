@@ -1,0 +1,11 @@
+<% unless comment.archived? %>
+    <p>
+        Comment:
+        <%= comment.body %>
+    </p>
+    <p>
+        By:
+        <%= comment.commenter %>
+    </p>
+    <%= link_to "Delete Comment", [comment.article, comment], method: :delete, data: {confirm: "Delete Comment?"} %>
+<% end %>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLog</title>
+</head>
+<body>
+        <h1>Home Page</h1>
+        <h2>Our blog has <%= Article.public_count %> articles and counting!</h2>
+        <h3>List of Articles are as follows </h3>
+        <ol>
+            <% @articles.each do |article| %>
+                <% unless article.archived? %>
+                <li>
+                    <%= link_to article.title, article %> 
+                    </a>
+                </li>
+                <% end %>
+            <% end %>
+        </ol>
+        <h3> <%= link_to "New Article", new_article_path %>
+        
+</body>
+</html>
